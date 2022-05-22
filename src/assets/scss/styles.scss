@@ -1,0 +1,31 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+.expenseTabWrap{
+    .mat-tab-labels{
+        justify-content: center;
+    }
+}
+
+.total-header{
+    background-color: #cff4fc;
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    
+    &.total-header-expense{
+        background-color: #f8d7da;
+    }
+}
+
+.chartWrap{
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0 auto;
+}
+
+

@@ -1,0 +1,62 @@
+<section class="mt-4">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="alert  text-center fw-bold" role="alert" [ngClass]="balance< 0 ? 'alert-danger' : 'alert-success '">
+              Balance: Rs. {{balance}}
+            </h3>
+          </div>
+            <div class="col-md-6">
+                <div class="total-header">
+                    <h3 class="flex-grow-1 mb-0">Tatal Income</h3>
+                    <h4 class="mb-0"> Rs. {{dayWiseTotalIncome}}</h4>
+                </div>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let income of incomeData" >
+                          <span class="flex-grow-1">{{income.incomeName}}</span>
+                          <span class="badge bg-info rounded-pill">{{income.incomeAmount}}</span>
+                          <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"(click)="deleteMoney(income.incomeId)">
+                            <mat-icon>delete</mat-icon>
+                          </button>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="total-header total-header-expense">
+                  <h3 class="flex-grow-1 mb-0">Tatal Expence</h3>
+                  <h4 class="mb-0"> Rs. {{dayWiseTotalExpense}}</h4>
+              </div>
+              <div>
+                  <ul class="list-group">
+                      <li class="list-group-item d-flex justify-content-between align-items-center"  *ngFor="let expense of expenseData" >
+                        <span class="flex-grow-1">{{expense.incomeName}}</span>
+                        <span class="badge bg-danger rounded-pill">{{expense.incomeAmount}}</span>
+                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"(click)="deleteMoney(expense.incomeId)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </li>
+                    </ul>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="total-header mb-4 mt-5">
+              <h3 class="flex-grow-1 mb-0">Category wise Expence</h3>
+            </div>
+            
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let category of categoryData" >
+                      {{category.name}}
+                      <span class="badge bg-info rounded-pill">{{category.moneyAmount}}</span>
+                    </li>
+                  </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <app-expense-chart [chartsData] = 'chartsData'></app-expense-chart>
+          </div>
+        </div>
+    </div>
+</section>

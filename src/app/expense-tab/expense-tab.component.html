@@ -1,0 +1,32 @@
+<section class="">
+    <h3 class="text-center pt-3">Select a Date to show Results</h3>
+    <div class="container-fluid">
+        <form [formGroup]="expenseDateForm" class="d-flex justify-content-center align-items-center">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="selectedExpenseDate" placeholder="MM/DD/YYYY">
+                <mat-error *ngIf="this.expenseDateForm.controls['selectedExpenseDate'].errors">Please select a Valid Date</mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button mat-raised-button color="accent" class="ms-3 mb-3" (click)="showResult()">Show Results</button>
+        </form>
+    </div>
+</section>
+<section class="expenseTabWrap pb-5"  *ngIf="selectedDate">
+        <mat-tab-group>
+            <mat-tab label="Day"><app-day-wise-expense></app-day-wise-expense></mat-tab>
+            <mat-tab label="Month" > 
+                <app-month-wise-expense></app-month-wise-expense>
+            </mat-tab>
+            <mat-tab label="Year"> 
+                <app-year-wise-expense></app-year-wise-expense>
+            </mat-tab>
+        </mat-tab-group>
+</section>
+<section *ngIf="!selectedDate">
+    <div class="container">
+        <div class="alert alert-warning text-center mt-4" role="alert">Please Select A date</div>
+        </div>
+</section>
+

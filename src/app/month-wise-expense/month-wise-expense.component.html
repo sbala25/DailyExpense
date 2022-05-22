@@ -1,0 +1,54 @@
+<section class="mt-4">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="alert  text-center fw-bold" role="alert" [ngClass]="balance< 0 ? 'alert-danger' : 'alert-success '">
+              Balance: Rs. {{balance}}
+            </h3>
+          </div>
+            <div class="col-md-6">
+                <div class="total-header">
+                    <h3 class="flex-grow-1 mb-0">Tatal Income</h3>
+                    <h4 class="mb-0"> Rs. {{monthWiseTotalIncome}}</h4>
+                </div>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let income of dayDataIncome" >
+                          {{income.name}}
+                          <span class="badge bg-info rounded-pill">{{income.totalAmount}}</span>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="total-header total-header-expense">
+                  <h3 class="flex-grow-1 mb-0">Tatal Expence</h3>
+                  <h4 class="mb-0"> Rs. {{monthWiseTotalExpense}}</h4>
+              </div>
+              <div>
+                  <ul class="list-group">
+                      <li class="list-group-item d-flex justify-content-between align-items-center"  *ngFor="let expense of dayDataExpense" >
+                        {{expense.name}}
+                        <span class="badge bg-danger rounded-pill">{{expense.totalAmount}}</span>
+                      </li>
+                    </ul>
+              </div>
+          </div>
+          <div class="offset-md-3 col-md-6">
+            <div class="total-header mb-4 mt-5">
+              <h3 class="flex-grow-1 mb-0">Category wise Expence</h3>
+            </div>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let category of categoryDataMonth" >
+                      {{category.name}}
+                      <span class="badge bg-info rounded-pill">{{category.moneyAmount}}</span>
+                    </li>
+                  </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+

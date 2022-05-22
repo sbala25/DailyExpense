@@ -1,0 +1,33 @@
+<h3>Add Your {{addTypeName}}</h3>
+<form [formGroup]="addIncomeForm" class="income-modal-warp">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="incomeDate" placeholder="MM/DD/YYYY">
+    <mat-error *ngIf="this.addIncomeForm.controls['incomeDate'].errors">Please select a Valid Date</mat-error>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>{{addTypeName}} Name</mat-label>
+    <input matInput placeholder="{{addTypeName}} Name" formControlName="incomeName">
+    <mat-error *ngIf="this.addIncomeForm.controls['incomeName'].errors">Please Enter a Valid {{addTypeName}} Name</mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="Amount" formControlName="incomeAmount" type="number" min="0">
+    <mat-error *ngIf="this.addIncomeForm.controls['incomeAmount'].errors">Please Enter a Valid Amount</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf= "selectBoxShow">
+    <mat-label>Select an Expense Type</mat-label>
+    <mat-select formControlName="incomeType">
+      <mat-option [value]="expenseCatagory.id" *ngFor="let expenseCatagory of expenseCatagories; first as isFirst" sele>{{expenseCatagory.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="this.addIncomeForm.controls['incomeType'].errors">Please Select a Expense Type</mat-error>
+  </mat-form-field>
+  <div class="d-flex justify-content-end mt-4">
+    <button mat-raised-button (click)="closeModal()" class="me-3">Close</button>
+    <button mat-raised-button color="accent" (click)="AddMoney()">Add {{addTypeName}}</button>
+  </div>
+</form>
+
+

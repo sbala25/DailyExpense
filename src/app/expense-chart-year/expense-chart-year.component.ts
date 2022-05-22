@@ -32,7 +32,6 @@ export class ExpenseChartYearComponent implements OnInit, OnChanges {
       dataValue.push(el.moneyAmount);
     })
     const ctx = document.getElementById('ctxY') as HTMLCanvasElement;
-    console.log(ctx)
     if(this.myChart != null){
       this.myChart.destroy();
     }

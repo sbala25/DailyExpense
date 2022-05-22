@@ -25,8 +25,6 @@ import { AddMoneyModalComponent } from './add-money-modal/add-money-modal.compon
 import { ExpenseChartComponent } from './expense-chart/expense-chart.component';
 import { YearWiseExpenseComponent } from './year-wise-expense/year-wise-expense.component';
 import { MonthWiseExpenseComponent } from './month-wise-expense/month-wise-expense.component';
-import { ExpenseChartMonthComponent } from './expense-chart-month/expense-chart-month.component';
-import { ExpenseChartYearComponent } from './expense-chart-year/expense-chart-year.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +35,7 @@ import { ExpenseChartYearComponent } from './expense-chart-year/expense-chart-ye
     AddMoneyModalComponent,
     ExpenseChartComponent,
     YearWiseExpenseComponent,
-    MonthWiseExpenseComponent,
-    ExpenseChartMonthComponent,
-    ExpenseChartYearComponent
+    MonthWiseExpenseComponent
   ],
   imports: [
     BrowserModule,

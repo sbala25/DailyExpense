@@ -13,8 +13,8 @@
                 </div>
                 <div>
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let income of incomeData" >
-                          <span class="flex-grow-1">{{income.incomeName}}</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let income of incomeData" matTooltip= {{income.tooltip}} matTooltipPosition="left">
+                          <span class="flex-grow-1" >{{income.incomeName}}</span>
                           <span class="badge bg-info rounded-pill">{{income.incomeAmount}}</span>
                           <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"(click)="deleteMoney(income.incomeId)">
                             <mat-icon>delete</mat-icon>
@@ -30,7 +30,7 @@
               </div>
               <div>
                   <ul class="list-group">
-                      <li class="list-group-item d-flex justify-content-between align-items-center"  *ngFor="let expense of expenseData" >
+                      <li class="list-group-item d-flex justify-content-between align-items-center"  *ngFor="let expense of expenseData" matTooltip= {{expense.tooltip}} matTooltipPosition="right">
                         <span class="flex-grow-1">{{expense.incomeName}}</span>
                         <span class="badge bg-danger rounded-pill">{{expense.incomeAmount}}</span>
                         <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"(click)="deleteMoney(expense.incomeId)">
@@ -49,7 +49,7 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let category of categoryData" >
                       {{category.name}}
-                      <span class="badge bg-info rounded-pill">{{category.moneyAmount}}</span>
+                      <span class="badge bg-danger rounded-pill">{{category.moneyAmount}}</span>
                     </li>
                   </ul>
             </div>

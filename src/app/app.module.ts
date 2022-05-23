@@ -18,6 +18,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { ExpenseTabComponent } from './expense-tab/expense-tab.component';
 import { DayWiseExpenseComponent } from './day-wise-expense/day-wise-expense.component';
@@ -52,7 +53,8 @@ import { MonthWiseExpenseComponent } from './month-wise-expense/month-wise-expen
     MatSelectModule,
     MatTabsModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@ export class AddMoneyModalComponent implements OnInit {
   expenseCatagories: { id: string; name: string; moneyAmount: number; chartscolor: string}[]=[
     {id: 'emi', name: 'EMI', chartscolor: 'rgb(255, 51, 51)', moneyAmount: 0 },
     {id: 'shopping', name: 'Shopping', chartscolor: 'rgb(0, 0, 102)', moneyAmount: 0},
-    {id: 'Food', name: 'Rent', chartscolor: 'red', moneyAmount: 0},
+    {id: 'Food', name: 'Food', chartscolor: 'rgb(102,0,102)', moneyAmount: 0},
     {id: 'ravelling', name: 'Travelling', chartscolor: 'rgb(255, 255, 0)', moneyAmount: 0},
     {id: 'homeExpense', name: 'homeExpense', chartscolor: 'rgb(255, 102, 102)', moneyAmount: 0},
     {id: 'others', name: 'Others', chartscolor: 'rgb(51, 255, 255)', moneyAmount: 0}

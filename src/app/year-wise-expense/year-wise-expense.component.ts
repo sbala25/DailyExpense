@@ -55,7 +55,12 @@ export class YearWiseExpenseComponent implements OnInit {
     this.monthDataIncome = [... this.monthData];
     this.monthDataExpense = [... this.monthData];
     this._ExpenseService.getData().subscribe(res2=>{
-      this.bulkData = res2;
+      let bulkDataUnsort = [...res2];
+      bulkDataUnsort.sort(function(a,b) {
+        return a.incomeDateMilliseconds - b.incomeDateMilliseconds;
+    });
+    bulkDataUnsort = bulkDataUnsort.reverse();
+      this.bulkData = [...bulkDataUnsort];
       this.incomeData = this.bulkData
                       .filter(el=>{ return el.addType == "income"})
                       .filter(el=> { return el.incomeYear == this.selectedDate.selectedYear })
@@ -109,7 +114,13 @@ export class YearWiseExpenseComponent implements OnInit {
 
   allIncome(){
     this._ExpenseService.getData().subscribe(res2=>{
-      this.bulkData = res2;
+      let bulkDataUnsort = [...res2];
+      bulkDataUnsort.sort(function(a,b) {
+        return a.incomeDateMilliseconds - b.incomeDateMilliseconds;
+    });
+    bulkDataUnsort = bulkDataUnsort.reverse();
+      this.bulkData = [...bulkDataUnsort];
+
       this.incomeData = this.bulkData
                       .filter(el=>{ return el.addType == "income"})
       this.yearWiseTotalIncome = 0;

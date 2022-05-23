@@ -63,7 +63,8 @@ export class AddMoneyModalComponent implements OnInit {
           addType : 'income',
           incomeYear: this.addIncomeForm.controls['incomeDate'].value.getFullYear(),
           incomeMonth: this.addIncomeForm.controls['incomeDate'].value.getMonth(),
-          incomeDay: this.addIncomeForm.controls['incomeDate'].value.getDate()
+          incomeDay: this.addIncomeForm.controls['incomeDate'].value.getDate(),
+          incomeDateMilliseconds:  this.addIncomeForm.controls['incomeDate'].value.getTime()
 
         }
         this.sendAndUpdateData(inputData);
@@ -80,8 +81,8 @@ export class AddMoneyModalComponent implements OnInit {
           addType : 'expense',
           incomeYear: this.addIncomeForm.controls['incomeDate'].value.getFullYear(),
           incomeMonth: this.addIncomeForm.controls['incomeDate'].value.getMonth(),
-          incomeDay: this.addIncomeForm.controls['incomeDate'].value.getDate()
-
+          incomeDay: this.addIncomeForm.controls['incomeDate'].value.getDate(),
+          incomeDateMilliseconds:  this.addIncomeForm.controls['incomeDate'].value.getTime()
         }
         this.sendAndUpdateData(inputData);
         this._snackBar.open('Money Added Successfully', 'Dismiss', {duration: 2000});
